@@ -11,12 +11,14 @@
         <tr>
             <th>Start Time</th>
             <th>End Time</th>
+            <th></th>
             <th>Type</th>
         </tr>
         {% for item in schedule %}
         <tr>
             <td>{{ item.start }}</td>
             <td>{{ item.end }}</td>
+            <td></td>
             <td>{{ item.label }}</td>
         </tr>
         {% endfor %}
