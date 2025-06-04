@@ -2,12 +2,24 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px 10px;
+    text-align: center;
+    background: black;
+    position: relative;
 }
 
 .wrapper {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .content {
@@ -17,59 +29,50 @@ html, body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
     z-index: 1;
+    position: relative;
 }
 
 footer {
     text-align: center;
     font-size: 14px;
-    color: #0056b3;
+    color: #00ff00;
     font-weight: bold;
     padding: 20px 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1;
     position: relative;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    padding: 20px 10px;
-    text-align: center;
-    background: linear-gradient(-45deg, #dbeafe, #e0f2fe, #fef3c7, #fee2e2);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    overflow-x: hidden;
-    position: relative;
-}
-
 form {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
     padding: 20px;
     margin: 40px auto;
     display: inline-block;
     text-align: left;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,255,0,0.3);
     z-index: 1;
     position: relative;
 }
 
 input[type="text"],
 input[type="number"] {
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
     padding: 8px;
     width: 100%;
     margin-top: 4px;
     margin-bottom: 12px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 input[type="submit"] {
-    background-color: #0056b3;
-    color: white;
+    background-color: #00ff00;
+    color: #000;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -77,26 +80,28 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #003f8a;
+    background-color: #00cc00;
 }
 
 table {
     margin: 20px auto;
     border-collapse: collapse;
     width: 80%;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    box-shadow: 0 2px 8px rgba(0,255,0,0.1);
+    z-index: 1;
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #00ff00;
     padding: 12px 16px;
     text-align: center;
 }
 
 th {
-    background-color: #e6f0ff;
-    color: #333;
+    background-color: #001a00;
+    color: #00ff00;
 }
 
 .no-select {
@@ -106,69 +111,12 @@ th {
     -ms-user-select: none;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes wave {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-body::before {
-    content: '';
-    position: absolute;
+canvas#matrixCanvas {
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 200%;
-    background: radial-gradient(#add8e6 2px, transparent 2px);
-    background-size: 20px 20px;
-    animation: wave 30s linear infinite;
-    opacity: 0.2;
     z-index: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: radial-gradient(circle at 20% 20%, #1e293b, #0f172a);
-        color: #f8fafc;
-    }
-
-    form {
-        background-color: #1e293b;
-        color: #f8fafc;
-    }
-
-    table {
-        background-color: #1e293b;
-        color: #f8fafc;
-    }
-
-    th {
-        background-color: #334155;
-        color: #f1f5f9;
-    }
-
-    footer {
-        background-color: rgba(30, 41, 59, 0.9);
-        color: #93c5fd;
-    }
-
-    input[type="submit"] {
-        background-color: #3b82f6;
-    }
-
-    input[type="submit"]:hover {
-        background-color: #2563eb;
-    }
-
-    input[type="text"],
-    input[type="number"] {
-        background-color: #0f172a;
-        color: #f1f5f9;
-        border: 1px solid #334155;
-    }
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
