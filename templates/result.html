@@ -28,39 +28,5 @@
             Made by Siddharth
         </footer>
     </div>
-
-    <script>
-    document.addEventListener('copy', function (e) {
-        const table = document.querySelector('table');
-        if (!table) return;
-
-        const tempTable = table.cloneNode(true);
-        tempTable.querySelectorAll('.no-select').forEach(cell => {
-            cell.textContent = '';
-        });
-
-        const tempDiv = document.createElement('div');
-        tempDiv.style.position = 'absolute';
-        tempDiv.style.left = '-9999px';
-        tempDiv.appendChild(tempTable);
-        document.body.appendChild(tempDiv);
-
-        const range = document.createRange();
-        range.selectNode(tempDiv);
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-
-        try {
-            document.execCommand('copy');
-            e.preventDefault();
-        } catch (err) {
-            console.error('Copy blocked', err);
-        }
-
-        document.body.removeChild(tempDiv);
-        selection.removeAllRanges();
-    });
-    </script>
 </body>
 </html>
