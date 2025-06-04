@@ -52,8 +52,8 @@ def generate_schedule(start_time_str, end_time_str, num_files, breaks):
         f_start = current_time
         f_end = f_start + timedelta(minutes=dur)
         schedule.append({
-            'start': f_start.strftime('%I:%M:%S %p'),
-            'end': f_end.strftime('%I:%M:%S %p'),
+            'start': f_start.strftime('%I:%M %p'),
+            'end': f_end.strftime('%I:%M %p'),
             'label': f"Work{label_suffix}"
         })
         current_time = f_end
